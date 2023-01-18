@@ -41,19 +41,20 @@ def run_tugger():
     elif 'time' in command:
         time = datetime.datetime.now().strftime('%I:%M %p')
         talk('Current time is ' + time)
-    elif 'can i know who is ' in command:
-        person = command.replace('can i know who is ', '')
-        info = wikipedia.summary(person, 1)
+    elif 'who is ' in command:
+        object = command.replace('who is', '')
+        info = wikipedia.summary(object, 1)
         print(info)
         talk(info)
     elif 'date' in command:
-        talk('sorry, I have a headache')
+        date = datetime.datetime.now().strftime('%d / %m %Y')
+        talk ('today the date is ' + date)
     elif 'are you single' in command:
-        talk('I am in a relationship with wifi')
+        talk('yes would you mind?')
     elif 'joke' in command:
         talk(pyjokes.get_joke())
     else:
-        talk('Please say the command again.')
+        talk('could not get, you say again')
 
 
 while True:
