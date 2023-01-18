@@ -23,8 +23,8 @@ def take_command():
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
-            if 'tugger' in command:
-                command = command.replace('tugger', '')
+            if 'alexa' in command:
+                command = command.replace('alexa', '')
                 print(command)
     except:
         pass
@@ -41,20 +41,19 @@ def run_tugger():
     elif 'time' in command:
         time = datetime.datetime.now().strftime('%I:%M %p')
         talk('Current time is ' + time)
-    elif 'who is ' in command:
-        object = command.replace('who is', '')
-        info = wikipedia.summary(object, 1)
+    elif 'can i know who is ' in command:
+        person = command.replace('can i know who is ', '')
+        info = wikipedia.summary(person, 1)
         print(info)
         talk(info)
     elif 'date' in command:
-        date = datetime.datetime.now().strftime('%d / %m %Y')
-        talk ('today the date is ' + date)
+        talk('sorry, I have a headache')
     elif 'are you single' in command:
-        talk('yes would you mind?')
+        talk('I am in a relationship with wifi')
     elif 'joke' in command:
         talk(pyjokes.get_joke())
     else:
-        talk('could not get, you say again')
+        talk('Please say the command again.')
 
 
 while True:
