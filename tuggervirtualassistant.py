@@ -23,8 +23,8 @@ def take_command():
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
-            if 'alexa' in command:
-                command = command.replace('alexa', '')
+            if 'tugger' in command:
+                command = command.replace('tugger', '')
                 print(command)
     except:
         pass
